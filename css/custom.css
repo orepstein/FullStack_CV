@@ -1,0 +1,285 @@
+#cv{
+    width: 800px;
+    margin: 0 auto;
+    margin-top: 20px;
+   
+}
+
+#profile{
+    background: #1e1e1e;
+    color:#a5a5a5;
+    padding: 25px 25px 2px 25px;
+}
+
+#intro{
+    display: flex;
+    align-items: center;
+}
+
+#intro img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-right: 25px;
+}
+
+#intro h1{
+    text-transform: uppercase;
+    color: orangered;
+    margin: 0;
+}
+
+#intro h2{
+    margin: 0;
+    text-transform: uppercase;
+    color: orangered;
+}
+#intro h3{
+    margin: 0;
+    text-transform: uppercase;
+    color: white;
+}
+#intro h5{
+    margin: 0;
+    text-transform: uppercase;
+    color: white;
+}
+
+#contact-info{
+    display: flex;
+    border-bottom: 2px solid #a5a5a5;
+}
+
+#contact-info ul{
+    list-style: none;
+}
+
+#contact-info ul:first-child{
+    font-weight: bold;
+}
+
+#about{
+    padding-left: 20px;
+    border-left: 2px solid #a5a5a5;
+    margin-left: 15px;
+}
+
+#social-networks{
+    border-top: 2px solid #a5a5a5;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    margin-top: 20px;
+    margin-right: 37px;
+}
+
+#social-networks a{
+    color:white;
+    text-decoration: none;
+}
+
+#social-networks li i{
+    margin-right: 5px;
+}
+
+#second{
+    display: flex;
+    
+}
+
+#experience{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    margin: 0;
+    width: 550px
+
+}
+#experience h3{
+	text-decoration: underline;
+    text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  color: #465457;
+  padding: 15px;
+  letter-spacing: 2px;
+  background: #cbdcea;
+  box-shadow: 0 0 0 4px #cbdcea;
+        
+}
+
+
+div#senior{
+    text-transform: uppercase;
+    text-decoration: underline;
+	font-family: 'Indie Flower', cursive;
+    color:#2fbebe;
+  border: 5px solid #0f0a6f;
+  letter-spacing: 4px;
+  text-align: center;
+  
+  
+ 
+  
+    
+}
+
+div#date{
+    font-size: 12px;
+    color: grey;
+    font-weight: bold;
+    
+}
+
+#exp-p{
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+    margin-top: 55px;
+    font-size: 12px;
+    color: #454242;
+    justify-content:space-around;
+}
+#exp-p b{
+	text-decoration: underline;
+}
+
+#boxes{
+    display: flex;
+    flex-direction: column;
+}
+
+#blue{
+    
+    
+    width: 260px;
+    height: 220px;
+    background-color: #38cedb;
+    margin-left: 25px;
+    align-self: center;
+    margin-left: 40px;
+	text-decoration: underline;
+    
+}
+#blue h2{
+    margin-left: 25px;
+ text-transform: uppercase;
+ 
+
+}
+#yellow h2{
+    margin-left: 25px;
+ text-transform: uppercase;
+
+}
+
+#yellow{
+    width: 260px;
+    height: 230px;
+    background-color: #f5f512;
+    margin-left: 40px;
+	text-decoration: underline;
+    
+}
+
+#mid{
+    background-color:#a57ab7;
+    display: flex;
+    
+}
+#mid h3{
+     text-transform: uppercase;
+    margin-left: 40px;
+}
+#mid div p{
+    margin-top: 1px;
+    margin-left: 27px;
+}
+#right{
+    display: flex;
+        flex-direction: column;
+
+
+}
+
+#left{
+    width: 261px;
+}
+
+#lower{
+    display: flex;
+}
+#lower h3{
+         text-transform: uppercase;
+        margin-left: 40px;
+		text-decoration: underline;
+}
+#hob{
+    display: flex;
+    justify-content: space-between;
+    width: 465px;
+    margin-left: 20px;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 27px;
+    margin-right: 20px
+	
+	
+	
+}
+#hob div p{
+	
+    font-size: 14px;
+	
+}
+#lang{
+	text-decoration: underline;
+    background-color: #f2f2f2;
+    width: 320px;
+    height: 200px
+    
+        
+}
+#skills{
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+	
+}
+
+progress{
+    width: 100px;
+    border-radius: 120px;
+    border: 3px solid;
+    
+   
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color: transparent;
+    border-radius: 20px;
+    
+}
+progress[value]::-webkit-progress-value {
+  background-image:
+	   -webkit-linear-gradient(-45deg, 
+	                           transparent 100%, black 100%, 
+	                          black 66%, transparent 100%),
+	   -webkit-linear-gradient(top, 
+	                           black, 
+	                           black),
+	   -webkit-linear-gradient(left, #09c, #f44);
+    background-size: 35px 20px, 100% 100%, 100% 100%;
+    
+}
+
+#langbar{
+    margin-top: 40px;
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 25px;
+	
+}
+
