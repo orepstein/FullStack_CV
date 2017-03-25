@@ -111,9 +111,9 @@
 
                     <section>
                 <ul>
-
                         <div id="senior">
-                         OO Programming
+                    {{experience.third}}
+
                         </div>
 
 
@@ -124,7 +124,7 @@
                 <ul>
 
                         <div id="senior">
-                         Functional Programming
+                     {{experience.fourth}}
                         </div>
 
 
@@ -135,7 +135,7 @@
                 <ul>
 
                         <div id="senior">
-                         Web Programming
+                    {{experience.fifth}}
                         </div>
 
 
@@ -151,23 +151,25 @@
 
                <section id="exp-p">
                     <section>
-                        <b>Unix, Backtrack5, Windows</b><br><br>
+                        <b> {{platforms.first}}
+                        </b><br><br>
 
                    </section>
 
                     <section>
-                        <b>C, Assembler</b><br><br>
+                        <b>{{platforms.second}}
+                        </b><br><br>
 
                    </section>
 
                     <section>
-                        <b>Java, C++</b><br><br>
+                        <b>{{platforms.third}}</b><br><br>
 
                    </section>
-                   <section>Erlang, Scala</strong><br>
+                   <section><b>{{platforms.fourth}}</b><br>
                      <br>
                    </section>
-                   <section> HTML, Flash, VB, CSS, Javascript<br>
+                   <section><b>{{platforms.fifth}}</b><br>
                      <br>
                    </section>
 
@@ -183,25 +185,25 @@
                             <table style="width:100%">
 
   <tr>
-    <td>Javascript</td>
-    <td><progress max="100" value="60"></progress></td>
+    <td>{{elementBox1.first.title}}</td>
+    <td><progress max="100" value="{{elementBox1.first.value}}"></progress></td>
 
   </tr>
   <tr>
-    <td>HTML/CSS</td>
-    <td><progress max="100" value="80"></progress></td>
+    <td>{{elementBox1.second.title}}</td>
+    <td><progress max="100" value="{{elementBox1.second.value}}"></progress></td>
 
   </tr>
 
   <tr>
-    <td>Photoshop</td>
-    <td><progress max="100" value="60"></progress></td>
+    <td>{{elementBox1.third.title}}</td>
+    <td><progress max="100" value="{{elementBox1.third.value}}"></progress></td>
 
   </tr>
 
  <tr>
-    <td>Java</td>
-    <td><progress max="100" value="80"></progress></td>
+    <td>{{elementBox1.fourth.title}}</td>
+    <td><progress max="100" value="{{elementBox1.fourth.value}}"></progress></td>
 
   </tr>
 </table>
@@ -216,25 +218,27 @@
                             <table style="width:100%">
 
   <tr>
-    <td>Creativity</td>
-    <td><progress max="100" value="80"></progress></td>
+         <td>{{elementBox2.first.title}}</td>
+    <td><progress max="100" value="{{elementBox2.first.value}}"></progress></td>
 
   </tr>
   <tr>
-    <td>Team Work</td>
-    <td><progress max="100" value="80"></progress></td>
+    <td>{{elementBox2.second.title}}</td>
+    <td><progress max="100" value="{{elementBox2.second.value}}"></progress></td>
 
   </tr>
 
   <tr>
-    <td>Hard Work</td>
-    <td><progress max="100" value="80"></progress></td>
+    <td>{{elementBox2.third.title}}</td>
+    <td><progress max="100" value="{{elementBox2.third.value}}"></progress></td>
 
   </tr>
 
  <tr>
-    <td>Leader Ship</td>
-    <td><progress max="100" value="80"></progress></td>
+    <td>{{elementBox2.fourth.title}}</td>
+    <td><progress max="100" value="{{elementBox2.fourth.value}}"></progress></td>
+    
+      
 
   </tr>
 </table>
@@ -253,10 +257,10 @@
 
                         <ul>
                         <div id="senior">
-                        Program <br>engineer
+                      {{education.first}}
                         </div>
                         <div id="date">
-                        <p>Agu 2017 - Oct 2014</p>
+                        <p>{{education.years}}</p>
                         </div>
 
 
@@ -266,7 +270,7 @@
                   <section id = "right">
 
                         <ul>
-                           <h5>Ort Singolovsky - Tel Aviv</h5>
+                           <h5>{{education.institute}}</h5>
                             <p></p>
 
                         </ul>
@@ -278,75 +282,7 @@
             </section>
 
 
-            <section id="lower">
-                <section>
-                <h3>hobbies</h3>
-                    <section id="hob">
 
-                        <div><i class="fa fa-camera" aria-hidden="true"></i><p>Photography</p>
-                        </div>
-                        <div><i class="fa fa-music" aria-hidden="true"></i><p>Music</p>
-                        </div>
-                        <div>
-                        <i class="fa fa-futbol-o" aria-hidden="true"></i><p>Football</p>
-                        </div>
-                        <div>
-                        <i class="fa fa-bicycle" aria-hidden="true"></i><p>Cycling</p>
-                        </div>
-                        <div>
-                        <i class="fa fa-book" aria-hidden="true"></i><p>Reading</p>
-                        </div>
-                        <div>
-                        <i class="fa fa-gamepad" aria-hidden="true">
-                            </i><p>Video Games</p>
-                        </div>
-
-
-
-
-
-                    </section>
-
-
-               </section>
-
-                <section id="lang">
-                <h3>Language</h3>
-                    <section id="langbar">
-
-                    <table style="width:100%">
-
-  <tr>
-    <td>English</td>
-    <td><progress max="100" value="80"></progress></td>
-
-  </tr>
-  <tr>
-    <td>Hebrew</td>
-    <td><progress max="100" value="80"></progress></td>
-
-  </tr>
-
-  <tr>
-	<td>Espanol</td>
-    <td><progress max="100" value="80"></progress></td>
-  </tr>
-
-  <tr>
-    <td>Russian</td>
-    <td><progress max="100" value="80"></progress></td>
-
-  </tr>
-</table>
-
-                    </section>
-                </section>
-
-
-
-
-
-            </section>
 
 
 
