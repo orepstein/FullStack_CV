@@ -1,39 +1,41 @@
 <div id="edit_cv_form">
+    <!--accessing the object by key-->
+    <!--accessing the arrays by index-->
     <div ng-repeat="(key, value) in headerProperties track by $index">
         <b>{{key}}:</b>
-        <input type="text" name="{{key}}" value="{{value}}" ng-model="headerProperties[key]">
+        <input type="text" ng-model="headerProperties[key]">
     </div>
     <div ng-repeat="(key, value) in about track by $index">
         <b>{{key}}:</b>
-        <input type="text" name="{{key}}" value="{{value}}" ng-model="about[key]">
+        <input type="text" ng-model="about[key]">
     </div>
     <div ng-repeat="(key, value) in socialNetworks track by $index">
         <b>{{key}}:</b>
-        <input type="text" name="{{key}}" value="{{value}}" ng-model="socialNetworks[key]">
+        <input type="text" ng-model="socialNetworks[key]">
     </div>
     <div ng-repeat="profession in experience track by $index">
         <b>{{$index + 1}}st profession:</b>
-        <input type="text" name="$index_{{profession}}" value="{{profession}}" ng-model="experience[$index]">
+        <input type="text" ng-model="experience[$index]">
     </div>
     <div ng-repeat="platform in platforms track by $index">
         <b>{{$index + 1}}st platform:</b>
-        <input type="text" name="$index_{{platform}}" value="{{platform}}" ng-model="platforms[$index]">
+        <input type="text" ng-model="platforms[$index]">
     </div>
     <div ng-repeat="proSkill in elementBox1 track by $index">
         <b>Skill no.{{$index + 1}}:</b>
-        <input type="text" name="$index_{{proSkill}}" value="{{proSkill.title}}" ng-model="elementBox1[$index].title">
-        <input type="text" name="$index_{{proSkill}}" value="{{proSkill.value}}" ng-model="elementBox1[$index].value">
+        <input type="text" ng-model="elementBox1[$index].title">
+        <input type="text" ng-model="elementBox1[$index].value">
     </div>
     <div ng-repeat="property in elementBox2 track by $index">
         <b>Property no {{$index + 1}}</b>
-        <input type="text" name="$index_{{propertyTitle}}" value="{{property.title}}"
+        <input type="text"
                ng-model="elementBox2[$index].title">
-        <input type="text" name="$index_{{propertyValue}}" value="{{property.value}}"
+        <input type="text"
                ng-model="elementBox2[$index].value">
     </div>
     <div ng-repeat="(key, value) in education track by $index">
         <b>{{key}}:</b>
-        <input type="text" name="{{key}}" value="{{value}}" ng-model="education[key]">
+        <input type="text" ng-model="education[key]">
     </div>
     <button id="submit_cv" ng-click="submitEditForm()">Submit</button>
 </div>

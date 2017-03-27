@@ -1,30 +1,37 @@
 <!doctype html>
 <html class="no-js" lang="">
 <head>
+    <!--declaring general stuff-->
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>קורות חיים</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!--declaring files we will use-->
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/custom.css">
-    <script src="modules/angular/angular.js"></script>
     <link rel="stylesheet" href="modules/ng-dialog/css/ngDialog.css">
     <link rel="stylesheet" href="modules/ng-dialog/css/ngDialog-theme-default.css">
     <link rel="stylesheet" href="modules/ng-dialog/css/ngDialog-theme-plain.css">
 
+    <!--define angular first and then-->
+    <script src="modules/angular/angular.js"></script>
     <script src="modules/ng-dialog/js/ngDialog.js"></script>
     <script src="js/app/cvController.js"></script>
 </head>
+
+<!--defining the app and controller of the html-->
 <body ng-app="cvApp">
 <div ng-controller="cvController">
-
+<!--everything we see on the main screen-->
     <section id="cv">
         <div id="content">
+            <!--defining a button that once clicked will activate the scope's function-->
             <button id="myBtn" ng-click="openEditWindow()">Edit</button>
 
             <section id="profile">

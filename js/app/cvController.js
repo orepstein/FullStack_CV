@@ -4,9 +4,11 @@ cvApp.config(['$qProvider', function ($qProvider) {
 }]);
 
 var cvController = cvApp.controller("cvController",
-    ['$scope', '$http', '$q', 'ngDialog',
-        function ($scope, $http, $q, ngDialog) {
+    ['$scope', '$http', 'ngDialog',
+        function ($scope, $http, ngDialog) {
+            //here starts the initialization of the scope/controller
             $http.get('/cv').then(function (cv) {
+                //after getting response from the server - defining the scope properties, after each, angular will put the properties on the html
                 $scope.headerProperties = cv.data.headerProperties;
                 $scope.about = cv.data.about;
                 $scope.socialNetworks = cv.data.socialNetworks;
@@ -16,9 +18,11 @@ var cvController = cvApp.controller("cvController",
                 $scope.elementBox2 = cv.data.elementBox2;
                 $scope.education = cv.data.education;
             });
+            
+            //declaring functions we will use later
 
             $scope.openEditWindow = function () {
-                $scope.dialog = ngDialog.open({
+                $scope.dialog = ngDialog.open({//opening a dialog (modal)
                     scope: $scope,
                     template: 'html/editCV.html',
                 });
@@ -34,7 +38,7 @@ var cvController = cvApp.controller("cvController",
                     elementBox1: $scope.elementBox1,
                     elementBox2: $scope.elementBox2,
                     education: $scope.education,
-                }).then(function(cv){
+                }).then(function(cv){//got response from the server
                     $scope.headerProperties = cv.data.headerProperties;
                     $scope.about = cv.data.about;
                     $scope.socialNetworks = cv.data.socialNetworks;
@@ -43,7 +47,8 @@ var cvController = cvApp.controller("cvController",
                     $scope.elementBox1 = cv.data.elementBox1;
                     $scope.elementBox2 = cv.data.elementBox2;
                     $scope.education = cv.data.education;
-                    $scope.dialog.close();
+                    
+                    $scope.dialog.close();//after finishiing to update the scope, close the dialog
                 });
             }
         }]

@@ -1,10 +1,26 @@
-var express = require('express');
-var app = express();
+
 var fs = require('fs');
-var mongoClient = require('mongodb');
 var bodyParser = require('body-parser');
+
+var mongoClient = require('mongodb');//related to mongop
 var mongoPort = 27017;
 var mongoUrl = 'mongodb://localhost:' + mongoPort + '/mydb';
+
+var express = require('express');//related to node and express
+var app = express();
+app.listen(8080, function () {
+    console.log('listening on port 8080');
+});
+app.use(bodyParser.urlencoded({extended: false}))//so the server can get the request body
+app.use(bodyParser.json())
+
+app.use('/css', express.static(__dirname + '/css/'));//to specify the path to files we need
+app.use('/doc', express.static(__dirname + '/doc/'));
+app.use('/img', express.static(__dirname + '/img/'));
+app.use('/js', express.static(__dirname + '/js/'));
+app.use('/html', express.static(__dirname + '/html/'));
+app.use('/modules', express.static(__dirname + '/node_modules/'));
+
 mongoClient.connect(mongoUrl, function (err, db) {//connect to mongo
     if (err === null) {
         console.log('mongo connected')
@@ -84,7 +100,7 @@ mongoClient.connect(mongoUrl, function (err, db) {//connect to mongo
                         years: '2015-2017',
                         institute: 'ort singalovsky'
                     }
-                }
+                };
                 db.collection('CV', function (err, cv_collection) {//getting the collection
                     cv_collection.count(
                         function (err, count) {//count how many documents are in collection
@@ -95,44 +111,43 @@ mongoClient.connect(mongoUrl, function (err, db) {//connect to mongo
                             }
                         });
                 });
+                //until here not related to browser, next is only after browser is loading
 
+                //declaring 3 entries (urls) that we will use later
                 app.get('/', function (req, res) {//navigating in browser
                     getCV(function (cv) {
-                        // var html = Handlebars.compile(fs.readFileSync('./index.html', 'utf8'))(
-                        //     cv
-                        // );//putting collection data into html
-                        res.sendFile(__dirname + '/index.html');//sending html back to browser
+                        res.sendFile(__dirname + '/index.html');//sending html back to browser without all the parameters
                     });
                 });
-                app.get('/cv', function (req, res) {
+                app.get('/cv', function (req, res) {//on contoller initialization, angular calls this route/url
                     getCV(function (cv) {
-                        res.send(cv);
+                        res.send(cv);//send response to client
                     });
                 });
-                app.put('/editCv', function (req, res) {
+                app.put('/editCv', function (req, res) {//here we are using the body parser to get the reuqest body
                     db.collection('CV', function (err, cv_collection) {//getting the collection
-                        cv_collection.update({},{
+                        cv_collection.update({}, {
                             $set: {
                                 headerProperties: req.body.headerProperties,
-                                about:req.body.about,
-                                socialNetworks:req.body.socialNetworks,
+                                about: req.body.about,
+                                socialNetworks: req.body.socialNetworks,
                                 experience: req.body.experience,
                                 platforms: req.body.platforms,
                                 elementBox1: req.body.elementBox1,
                                 elementBox2: req.body.elementBox2,
                                 education: req.body.education
                             }
-                        }, function(err, response) {
-                            getCV(function(cv){
-                                res.send(cv);
+                        }, function (err, response) {//after finished to update the document
+                            getCV(function (cv) {//getting the document
+                                res.send(cv);//send back to client the document
                             })
                         });
                     });
                 });
 
-                function getCV(callback) {
+                function getCV(callback) {//this function gets us the document in mongo
                     db.collection('CV', function (err, cv_collection) {//getting the collection
-                        cv_collection.find({}).toArray(function (err, response) {//getting the collection data
+                        cv_collection.find({}).toArray(function (err, response) {//getting the collection data (document)
                             callback(response[0]);
                         });
                     });
@@ -145,19 +160,6 @@ mongoClient.connect(mongoUrl, function (err, db) {//connect to mongo
 
 });
 
-app.listen(8080, function () {
-    console.log('listening on port 8080');
-});
-app.use(bodyParser.urlencoded({extended: false}))
-app
-    .use(bodyParser.json())
-
-app.use('/css', express.static(__dirname + '/css/'));
-app.use('/doc', express.static(__dirname + '/doc/'));
-app.use('/img', express.static(__dirname + '/img/'));
-app.use('/js', express.static(__dirname + '/js/'));
-app.use('/html', express.static(__dirname + '/html/'));
-app.use('/modules', express.static(__dirname + '/node_modules/'));
 
 
  
