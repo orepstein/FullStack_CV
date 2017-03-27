@@ -140,7 +140,7 @@ mongoClient.connect(mongoUrl, function (err, db) {//connect to mongo
                         }, function (err, response) {//after finished to update the document
                             getCV(function (cv) {//getting the document
                                 res.send(cv);//send back to client the document
-                            })
+                            });
                         });
                     });
                 });
