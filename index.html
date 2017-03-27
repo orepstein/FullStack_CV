@@ -1,299 +1,195 @@
 <!doctype html>
 <html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>קורות חיים</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <!--declaring general stuff-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>קורות חיים</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <!-- Place favicon.ico in the root directory -->
+    <!--declaring files we will use-->
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/main.css">
-		<link rel="stylesheet" href="css/custom.css">
-        <!--<script src="js/vendor/modernizr-2.8.3.min.js"></script>-->
-    </head>
-    <body>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="modules/ng-dialog/css/ngDialog.css">
+    <link rel="stylesheet" href="modules/ng-dialog/css/ngDialog-theme-default.css">
+    <link rel="stylesheet" href="modules/ng-dialog/css/ngDialog-theme-plain.css">
 
-        <section id="cv">
+    <!--define angular first and then-->
+    <script src="modules/angular/angular.js"></script>
+    <script src="modules/ng-dialog/js/ngDialog.js"></script>
+    <script src="js/app/cvController.js"></script>
+</head>
+
+<!--defining the app and controller of the html-->
+<body ng-app="cvApp">
+<div ng-controller="cvController">
+<!--everything we see on the main screen-->
+    <section id="cv">
+        <div id="content">
+            <!--defining a button that once clicked will activate the scope's function-->
+            <button id="myBtn" ng-click="openEditWindow()">Edit</button>
 
             <section id="profile">
+                <section id="intro">
+                    <img src="img/MyPhoto.jpg"/>
+                    <header>
+                        <h1>{{headerProperties.firstName}}</h1>
+                        <h2>{{headerProperties.lastName}}</h2>
+                        <h3>{{headerProperties.course}}</h3>
+                        <h5>{{headerProperties.project}}</h5>
+                    </header>
+                    <section id="about">
+                        <section id="contact-info">
+                            <ul>
+                                <li>Phone:</li>
+                                <li>Area:</li>
+                                <li>Email:</li>
 
+                            </ul>
+                            <ul>
+                                <li><strong>{{about.phone}}</strong></li>
+                                <li><strong>{{about.area}}</strong></li>
+                                <li><strong>{{about.email}}</strong></li>
+                            </ul>
+                        </section>
+                        <article>
 
-              <section id="intro">
+                            <h1>About me</h1>
+                            <p></p>
+                        </article>
 
-              <img src="img/MyPhoto.jpg"/>
-             <header>
-            <h1>{{headerProperties.firstName}}</h1>
-             <h2>{{headerProperties.lastName}}</h2>
-             <h3>{{headerProperties.course}}</h3>
-             <h5>{{headerProperties.project}}</h5>
-            </header>
-                  <section id="about">
-                  <section id="contact-info">
-                      <ul>
-                      <li>Phone:</li>
-                          <li>Area:</li>
-                          <li>Email:</li>
-
-                      </ul>
-                      <ul>
-                      <li><strong>{{about.phone}}</strong></li>
-                          <li><strong>{{about.area}}</strong></li>
-                          <li><strong>{{about.email}}</strong></li>
-                      </ul>
-                      </section>
-                     <article>
-
-                      <h1>About me</h1>
-                         <p>  </p>
-                      </article>
-
-                  </section>
-              </section>
+                    </section>
+                </section>
                 <ul id="social-networks">
-                  <li> <em class="fa fa-facebook-official" aria-hidden="true"></em> <a href={{socialNetworks.facebook}}>Facebook</a> </li>
-                  <li>
-                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                    <li><em class="fa fa-facebook-official" aria-hidden="true"></em> <a
+                            href={{socialNetworks.facebook}}>Facebook</a>
+                    </li>
+                    <li>
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
 
 
-                <a href="#">instagram</a>
-                </li>
+                        <a href="#">instagram</a>
+                    </li>
                     <li>
                         <i class="fa fa-twitter" aria-hidden="true"></i>
-
-
-                <a href="#">twitter</a>
-                </li>
-                   <li>
-                       <i class="fa fa-envelope-o" aria-hidden="true"></i>
-
-                <a href={{socialNetworks.mailto}}>Email</a>
-                </li>
+                        <a href="#">twitter</a>
+                    </li>
+                    <li>
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        <a href={{socialNetworks.mailto}}>Email</a>
+                    </li>
                     <li>
                         <i class="fa fa-at" aria-hidden="true"></i>
-
-
-                <a href="#">Website</a>
-                </li>
+                        <a href="#">Website</a>
+                    </li>
                 </ul>
             </section>
-           <section id="second">
+            <section id="second">
+                <section id="experience">
+                    <div class="d1"><h3>experience</h3></div>
+                    <section ng-repeat="element in experience">
+                        <ul>
+                            <div id="senior">
+                                {{element}}
+                            </div>
 
-
-
-
-
-
-            <section id="experience" >
-               <div class="d1"><h3>experience</h3></div>
-                <section>
-                <ul>
-                        <div id="senior">
-                       {{experience.first}}
-                        </div>
-
-                    </ul>
-                </section>
-                   <section>
-                <ul>
-
-                        <div id="senior">
-                            {{experience.second}}
-                        </div>
-
-
-                    </ul>
-                </section>
-
-                    <section>
-                <ul>
-                        <div id="senior">
-                    {{experience.third}}
-
-                        </div>
-
-
-                    </ul>
-                </section>
-
-                 <section>
-                <ul>
-
-                        <div id="senior">
-                     {{experience.fourth}}
-                        </div>
-
-
-                    </ul>
-                </section>
-
-                 <section>
-                <ul>
-
-                        <div id="senior">
-                    {{experience.fifth}}
-                        </div>
-
-
-                    </ul>
+                        </ul>
+                    </section>
                 </section>
 
 
-
-            </section>
-
-
-
-
-               <section id="exp-p">
-                    <section>
-                        <b> {{platforms.first}}
+                <section id="exp-p">
+                    <section ng-repeat="element in platforms">
+                        <b> {{element}}
                         </b><br><br>
 
-                   </section>
+                    </section>
 
-                    <section>
-                        <b>{{platforms.second}}
-                        </b><br><br>
-
-                   </section>
-
-                    <section>
-                        <b>{{platforms.third}}</b><br><br>
-
-                   </section>
-                   <section><b>{{platforms.fourth}}</b><br>
-                     <br>
-                   </section>
-                   <section><b>{{platforms.fifth}}</b><br>
-                     <br>
-                   </section>
-
-                   </section>
+                </section>
 
 
-
-              <section id="boxes">
+                <section id="boxes">
 
                     <section id="blue">
-                    <h2>Pro Skills</h2>
+                        <h2>Pro Skills</h2>
+                        <section id="skills">
+                            <table style="width:100%">
+                                <tr ng-repeat="element in elementBox1">
+                                    <td>{{element.title}}</td>
+                                    <td>
+                                        <progress max="100" value="{{element.value}}"></progress>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>{{cv.elementBox1.second.title}}</td>
+                                    <td>
+                                        <progress max="100" value="{{elementBox1.second.value}}"></progress>
+                                    </td>
+
+                                </tr>
+                            </table>
+                        </section>
+                    </section>
+                    <section id="yellow">
+                        <h2>Pro Skills</h2>
                         <section id="skills">
                             <table style="width:100%">
 
-  <tr>
-    <td>{{elementBox1.first.title}}</td>
-    <td><progress max="100" value="{{elementBox1.first.value}}"></progress></td>
+                                <tr ng-repeat="element in elementBox1">
+                                    <td>{{element.title}}</td>
+                                    <td>
+                                        <progress max="100" value="{{element.value}}"></progress>
+                                    </td>
 
-  </tr>
-  <tr>
-    <td>{{elementBox1.second.title}}</td>
-    <td><progress max="100" value="{{elementBox1.second.value}}"></progress></td>
-
-  </tr>
-
-  <tr>
-    <td>{{elementBox1.third.title}}</td>
-    <td><progress max="100" value="{{elementBox1.third.value}}"></progress></td>
-
-  </tr>
-
- <tr>
-    <td>{{elementBox1.fourth.title}}</td>
-    <td><progress max="100" value="{{elementBox1.fourth.value}}"></progress></td>
-
-  </tr>
-</table>
-
+                                </tr>
+                            </table>
                         </section>
-
-                  </section>
-
-                  <section id="yellow">
-                  <h2>Pro Skills</h2>
-                  <section id="skills">
-                            <table style="width:100%">
-
-  <tr>
-         <td>{{elementBox2.first.title}}</td>
-    <td><progress max="100" value="{{elementBox2.first.value}}"></progress></td>
-
-  </tr>
-  <tr>
-    <td>{{elementBox2.second.title}}</td>
-    <td><progress max="100" value="{{elementBox2.second.value}}"></progress></td>
-
-  </tr>
-
-  <tr>
-    <td>{{elementBox2.third.title}}</td>
-    <td><progress max="100" value="{{elementBox2.third.value}}"></progress></td>
-
-  </tr>
-
- <tr>
-    <td>{{elementBox2.fourth.title}}</td>
-    <td><progress max="100" value="{{elementBox2.fourth.value}}"></progress></td>
-    
-      
-
-  </tr>
-</table>
-
-                        </section>
-                  </section>
-               </section>
+                    </section>
+                </section>
 
             </section>
 
 
             <section id="mid">
 
-                    <section id="left">
-                        <h3>education</h3>
+                <section id="left">
+                    <h3>education</h3>
 
-                        <ul>
+                    <ul>
                         <div id="senior">
-                      {{education.first}}
+                            {{education.degree}}
                         </div>
                         <div id="date">
-                        <p>{{education.years}}</p>
+                            <p>{{education.years}}</p>
                         </div>
 
 
+                </section>
 
-                    </section>
+                <section id="right">
 
-                  <section id = "right">
+                    <ul>
+                        <h5>{{education.institute}}</h5>
+                        <p></p>
 
-                        <ul>
-                           <h5>{{education.institute}}</h5>
-                            <p></p>
-
-                        </ul>
-
+                    </ul>
 
 
-                    </section>
+                </section>
 
             </section>
 
 
+        </div>
 
 
-
-
-
-
-        </section>
-
-
-
-
-
-
-    </body>
+    </section>
+</div>
+</body>
 </html>
