@@ -26,7 +26,22 @@ var cvController = cvApp.controller("cvController",
                     scope: $scope,
                     template: 'html/editCV.html',
                 });
+                $scope.dialog.closePromise.then(function() {
+                    $http.get('/cv').then(function (cv) {
+                        //after getting response from the server - defining the scope properties, after each, angular will put the properties on the html
+                        $scope.headerProperties = cv.data.headerProperties;
+                        $scope.about = cv.data.about;
+                        $scope.socialNetworks = cv.data.socialNetworks;
+                        $scope.experience = cv.data.experience;
+                        $scope.platforms = cv.data.platforms;
+                        $scope.elementBox1 = cv.data.elementBox1;
+                        $scope.elementBox2 = cv.data.elementBox2;
+                        $scope.education = cv.data.education;
+                    });
+                });
+
             };
+
 
             $scope.submitEditForm = function () {
                 $http.put('/editCv', {
@@ -49,7 +64,7 @@ var cvController = cvApp.controller("cvController",
                     $scope.education = cv.data.education;
                     
                     $scope.dialog.close();//after finishiing to update the scope, close the dialog
-                });
+                })
             }
         }]
 );
